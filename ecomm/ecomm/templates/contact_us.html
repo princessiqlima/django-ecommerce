@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% include 'carousel.html' %}
+
+<!--Main layout-->
+<main>
+    <div class="container">
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-dark mt-3 mb-5 shadow p-2" style="background-color: #d1847d">
+            <!-- Container wrapper -->
+            <div class="container-fluid">
+
+                <!-- Navbar brand -->
+                <a class="navbar-brand" href="#">Contact Us</a>
+
+            </div>  
+            <!-- Container wrapper -->
+        </nav>
+        <!-- Navbar -->
+
+        <!-- Products -->
+        <section>
+            <div class="text-center">
+              <div class="row">
+                
+                <div class="col-lg-3 col-md-6 mb-4">
+                 
+                    <div class="card-body" >
+                      <table >
+                        <tr>
+                            <td>Nama</td>
+                            <td>:</td>
+                            <td>
+                                <input type="text" class="form-control rounded-0" placeholder="Nama Lengkap" aria-label="Nama Lengkap">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Email</td>
+                            <td>:</td>
+                            <td>
+                                <input type="email" class="form-control rounded-0" placeholder="Email" aria-label="Email">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Pesan</td>
+                            <td>:</td>
+                            <td>
+                                <textarea name="pesan" id="" cols="30" rows="10"  class="form-control rounded-0"></textarea>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">
+                                <input type="submit" name="" id="" value="Kirim" style="background-color: #d1847d; padding: 10 20;">
+                            </td>
+                        </tr>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </section>
+        <!-- End Products -->
+
+        <!-- Pagination -->
+        {% if is_paginated %}
+        <nav aria-label="Page navigation example" class="d-flex justify-content-center mt-3">
+            <ul class="pagination">
+                <li class="page-item">
+                  {% if page_obj.has_previous %}
+                    <a class="page-link" href="{{ request.path }}?page={{ page_obj.previous_page_number }}" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                  {% endif %}
+                </li>
+                <li class="page-item active"><a class="page-link" href="#">{{ page_obj.number }}</a></li>
+                <li class="page-item">
+                  {% if page_obj.has_next %}
+                    <a class="page-link" href="{{ request.path }}?page={{ page_obj.next_page_number }}" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                  {% endif %}
+                </li>
+            </ul>
+        </nav>
+        {% endif %}
+        <!-- Pagination -->
+    </div>
+</main>
+<!--Main layout-->
+{% endblock content %}
+
